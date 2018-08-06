@@ -16,6 +16,10 @@ const routes: Routes = [
     data: { title: 'About' }
   },
   {
+    path: 'todo',
+    loadChildren: 'src/app/routes/todo/todo.module#TodoModule'
+  },
+  {
     path: '**',
     component: ErrorComponent,
     data: { title: '404 Not Found' }
@@ -23,7 +27,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
