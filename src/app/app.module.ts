@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { MDLUpgradeElementDirective } from './directives/MaterialDesignLiteUpgradeElement';
+import { AboutComponent } from './components/about/about.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { MDLUpgradeElementDirective } from './directives/MaterialDesignLiteUpgra
     HomeComponent,
     ErrorComponent,
     MDLUpgradeElementDirective,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
