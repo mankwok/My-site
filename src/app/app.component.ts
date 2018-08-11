@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap } from 'rxjs/operators';
@@ -15,7 +15,8 @@ export class AppComponent implements OnInit{
     private titleService: Title
   ) {}
 
-  title = 'My Tools';
+  @ViewChild('drawer') drawer:ElementRef;
+  title = 'Kwok\'s Site';
 
   ngOnInit() {
     this.router.events.pipe(
@@ -31,8 +32,6 @@ export class AppComponent implements OnInit{
   }
 
   onNavClick(){
-    (
-      document.querySelector('.mdl-layout__obfuscator') as HTMLDivElement
-    ).click();
+    this.drawer.nativeElement.MaterialLayout.toggleDrawer();
   }
 }
