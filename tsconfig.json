@@ -15,6 +15,13 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@app-core/*": ["src/app/core/*"],
+      "@app-components/*": ["src/app/components/*"],
+      "@app-guards/*": ["src/app/guards/*"],
+      "@app-routes/*": ["src/app/routes/*"],
+      "@app-services/*": ["src/app/services/*"],
+    }
   }
 }

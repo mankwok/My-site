@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { AboutComponent } from './components/about/about.component';
-import { ErrorComponent } from './components/error/error.component';
+import { HomeComponent } from '@app-components/home/home.component';
+import { AboutComponent } from '@app-components/about/about.component';
+import { ErrorComponent } from '@app-components/error/error.component';
+import { AuthGuard } from '@app-core/auth.guard';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
   },
   {
     path: 'todo',
-    loadChildren: 'src/app/routes/todo/todo.module#TodoModule'
+    loadChildren: '@app-routes/todo/todo.module#TodoModule',
+    canLoad: [AuthGuard]
   },
   {
     path: '**',
