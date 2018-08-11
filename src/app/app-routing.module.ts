@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: '**',
     component: ErrorComponent,
-    data: { title: '404 Not Found' }
+    data: { title: 'Page Not Found' }
   }
 ];
 
