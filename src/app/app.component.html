@@ -4,20 +4,22 @@
       <span class="mdl-layout-title">{{this.title}}</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" routerLink="/">Home</a>
-        <a class="mdl-navigation__link" routerLink="/tools">Tools</a>
-        <a class="mdl-navigation__link" routerLink="/todo">Todo</a>
-        <a class="mdl-navigation__link" routerLink="/about">About</a>
+        <a class="mdl-navigation__link" routerLink="/" routerLinkActive="is-active">Home</a>
+        <a *ngIf="(authService.user | async)?.uid" class="mdl-navigation__link" routerLink="/tools" routerLinkActive="is-active">Tools</a>
+        <a *ngIf="(authService.user | async)?.uid" class="mdl-navigation__link" routerLink="/todo" routerLinkActive="is-active">Todo</a>
+        <a class="mdl-navigation__link" routerLink="/about" routerLinkActive="is-active">About</a>
+        <a *ngIf="(authService.user | async)?.uid" class="mdl-navigation__link" (click)="authService.signOut()" href="">Logout</a>
       </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">{{this.title}}</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" routerLink="/" (click)="onNavClick()">Home</a>
-      <a class="mdl-navigation__link" routerLink="/tools" (click)="onNavClick()">Tools</a>
-      <a class="mdl-navigation__link" routerLink="/todo" (click)="onNavClick()">Todo</a>
-      <a class="mdl-navigation__link" routerLink="/about" (click)="onNavClick()">About</a>
+      <a class="mdl-navigation__link" routerLink="/" routerLinkActive="is-active" (click)="onNavClick()">Home</a>
+      <a *ngIf="(authService.user | async)?.uid" class="mdl-navigation__link" routerLink="/tools" routerLinkActive="is-active" (click)="onNavClick()">Tools</a>
+      <a *ngIf="(authService.user | async)?.uid" class="mdl-navigation__link" routerLink="/todo" routerLinkActive="is-active" (click)="onNavClick()">Todo</a>
+      <a class="mdl-navigation__link" routerLink="/about" routerLinkActive="is-active" (click)="onNavClick()">About</a>
+      <a *ngIf="(authService.user | async)?.uid" class="mdl-navigation__link" (click)="authService.signOut()" href="">Logout</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
