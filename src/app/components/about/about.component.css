@@ -1,0 +1,13 @@
+img.article-image {
+  width: 100%;
+  height: auto;
+}
+
+.portfolio-max-width {
+  max-width: 900px;
+  margin: auto;
+}
+
+.no-padding {
+  padding: 0;
+}
