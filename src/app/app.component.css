@@ -1,3 +1,6 @@
+.custom-header {
+  height: 68px;
+}
 .mdl-navigation__link {
   font-weight: bold;
 }
@@ -7,11 +10,14 @@
   color: rgb(255, 255, 255);
   line-height: 64px;
   padding: 0 24px;
-  border-bottom: 3px solid transparent;
+  border-bottom: 4px solid transparent;
 }
 
 .mdl-layout--large-screen-only .is-active {
-  border-bottom: 3px solid rgb(255, 64, 129);
+  border-bottom: 4px solid rgb(255, 64, 129);
+}
+.mdl-layout--large-screen-only .mdl-navigation__link:hover {
+  border-bottom: 4px solid rgb(255, 64, 129);
 }
 
 .mdl-layout__drawer .is-active {

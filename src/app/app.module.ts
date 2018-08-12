@@ -11,6 +11,8 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { CoreModule } from '@app-core/core.module';
 import { AuthGuard } from '@app-core/auth.guard';
+import { NotAuthGuard } from '@app-core/not-auth.guard';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { AuthGuard } from '@app-core/auth.guard';
     ErrorComponent,
     MDLUpgradeElementDirective,
     AboutComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { AuthGuard } from '@app-core/auth.guard';
     CoreModule
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    NotAuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -49,6 +49,7 @@ export class AuthService {
   private oAuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider).then(credential => {
       this.updateUserData(credential.user);
+      this.router.navigate(['/']);
     });
   }
 
@@ -75,7 +76,18 @@ export class AuthService {
       map(user => !!user),
       tap(loggedIn => {
         if (!loggedIn) {
-          console.log('Access denied');
+          this.router.navigate(['/login']);
+        }
+      })
+    );
+  }
+
+  isNotLoggedIn(): Observable<boolean> {
+    return this.user.pipe(
+      take(1),
+      map(user => !user),
+      tap(loggedIn => {
+        if (!loggedIn) {
           this.router.navigate(['/']);
         }
       })
