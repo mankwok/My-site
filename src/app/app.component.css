@@ -1,0 +1,29 @@
+.mdl-navigation__link {
+  font-weight: bold;
+}
+
+.mdl-layout__header .mdl-navigation__link {
+  display: block;
+  color: rgb(255, 255, 255);
+  line-height: 64px;
+  padding: 0 24px;
+  border-bottom: 3px solid transparent;
+}
+
+.mdl-layout--large-screen-only .is-active {
+  border-bottom: 3px solid rgb(255, 64, 129);
+}
+
+.mdl-layout__drawer .is-active {
+  color: rgb(255, 64, 129);
+}
+
+.material-icons {
+  margin-right: 24px;
+}
+
+.drawer-separator {
+  height: 1px;
+  background-color: #dcdcdc;
+  margin: 8px 0;
+}
