@@ -53,6 +53,13 @@ export class AuthService {
     });
   }
 
+  emailPasswordLogin(email, password) {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password).then(credential => {
+      this.updateUserData(credential.user);
+      this.router.navigate(['/']);
+    });
+  }
+
   private updateUserData(user) {
     // Sets user data to firestore on login
 

@@ -50,7 +50,7 @@
         Login
       </a>
       <a class="mdl-navigation__link" *ngIf="(authService.user | async)?.uid" (click)="authService.signOut()" href="">
-        <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">power_settings_new</i>
+        <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i>
         Logout
       </a>
     </nav>
