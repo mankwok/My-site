@@ -1,19 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { CoreModule } from '@app-core/core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '@app-core/material/material.module'
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { MDLUpgradeElementDirective } from './directives/MaterialDesignLiteUpgradeElement';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
-import { MDLUpgradeElementDirective } from './directives/MaterialDesignLiteUpgradeElement';
 import { AboutComponent } from './components/about/about.component';
-import { AngularFireModule } from 'angularfire2';
-import { environment } from '../environments/environment';
-import { CoreModule } from '@app-core/core.module';
+import { LoginComponent } from './components/login/login.component';
+
 import { AuthGuard } from '@app-core/auth.guard';
 import { NotAuthGuard } from '@app-core/not-auth.guard';
-import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +27,17 @@ import { LoginComponent } from './components/login/login.component';
     ErrorComponent,
     MDLUpgradeElementDirective,
     AboutComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    CoreModule
+    CoreModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FlexLayoutModule
   ],
   providers: [
     AuthGuard,
