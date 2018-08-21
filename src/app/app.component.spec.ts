@@ -17,9 +17,9 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  it(`should have as title 'My Tools`, async(() => {
+  it(`should have as title Kwok\'s Site`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('My Tools');
+    expect(app.title).toEqual('Kwok\'s Site');
   }));
 });
