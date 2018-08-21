@@ -1,34 +1,67 @@
-
-.mdl-navigation__link {
-  font-weight: bold;
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
 }
 
-.mdl-layout__header .mdl-navigation__link {
-  display: block;
-  color: rgb(255, 255, 255);
-  height: 60px;
-  line-height: 64px;
-  padding: 0 24px;
-  border-bottom: 4px solid transparent;
+.is-mobile .toolbar {
+  position: fixed;
+  z-index: 2;
 }
 
-.mdl-layout--large-screen-only .is-active {
-  border-bottom: 4px solid rgb(255, 64, 129);
-}
-.mdl-layout--large-screen-only .mdl-navigation__link:hover {
-  border-bottom: 4px solid rgb(255, 64, 129);
+.toolbar {
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
 }
 
-.mdl-layout__drawer .is-active {
-  color: rgb(255, 64, 129);
+h1.app-name {
+  margin-left: 8px;
 }
 
-.material-icons {
+.sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.is-mobile .sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+.app-sidenav {
+  min-width: 200px;
+  border-right: 1px solid #e0e0e0;  
+}
+.nav-icon {
   margin-right: 24px;
 }
 
-.drawer-separator {
-  height: 1px;
-  background-color: #dcdcdc;
-  margin: 8px 0;
+mat-nav-list a {
+  color: #757575;
+}
+
+mat-nav-list .is-active {
+  color: #EC407A;
+}
+
+footer {
+  background: #3f51b5;
+  color: #fff;
+  padding: 20px
+}
+
+footer a{
+  color: #fff;
+}
+
+.content {
+  box-sizing: border-box;
+  padding: 20px;
 }

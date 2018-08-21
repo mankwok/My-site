@@ -1,28 +1,16 @@
-<div class="mdl-grid portfolio-max-width">
-  <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">About</h2>
-    </div>
-    <div class="mdl-card__media">
-      <img class="article-image" src="https://assets.mankwok.io/misc/about.png" border="0" alt="">
-    </div>
-    <div class="mdl-grid">
-      <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Introduction</h3>
-      <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding ">
-        <p>
-         Hi! My name is Kwok.
-        </p>
-      </div>
-      <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">The Website</h3>
-      <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding ">
-        <p>
-          This website is built with Angular and using firebase as backend.
-          
-        </p>
-        <p>
-          You can find the source from GitHub: <a href="https://github.com/mankwok/Tools">https://github.com/mankwok/Tools</a>
-        </p>
-      </div>
-    </div>
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <div fxFlex="50%">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h3>About</h3>
+        </mat-card-title>
+      </mat-card-header>
+      <img mat-card-image class="article-image " src="https://assets.mankwok.io/misc/about.png" alt="">
+      <mat-card-content>
+        <p>Hi! My name is Kwok.</p>
+        <p>This website is built with Angular and using firebase as backend.</p>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

@@ -1,63 +1,45 @@
-<div #drawer mdl class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title ">{{this.title}}</span>
-      <div class="mdl-layout-spacer"></div>
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+<div class="container" [class.is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="toolbar mat-elevation-z6">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="app-name">{{this.title}}</h1>
+  </mat-toolbar>
+  <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav class="app-sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="snav.toggle()">
+          <mat-icon class="nav-icon">home</mat-icon>
           Home
         </a>
-        <a class="mdl-navigation__link" *ngIf="(authService.user | async)?.uid" routerLink="/tools" routerLinkActive="is-active"
-          [routerLinkActiveOptions]="{ exact: true }">
+        <a mat-list-item *ngIf="(authService.user | async)?.uid" routerLink="/tools" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }"
+          (click)="snav.toggle()">
+          <mat-icon class="nav-icon">build</mat-icon>
           Tools
         </a>
-        <a class="mdl-navigation__link" *ngIf="(authService.user | async)?.uid" routerLink="/todo" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+        <a mat-list-item *ngIf="(authService.user | async)?.uid" routerLink="/todo" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }"
+          (click)="snav.toggle()">
+          <mat-icon class="nav-icon">checkbox</mat-icon>
           Todo
         </a>
-        <a class="mdl-navigation__link" routerLink="/about" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
-          About
+        <a mat-list-item *ngIf="!(authService.user | async)?.uid" routerLink="/login" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }"
+          (click)="snav.toggle()">
+          <mat-icon class="nav-icon">account_box</mat-icon>
+          Login
         </a>
-        <a class="mdl-navigation__link" *ngIf="!(authService.user | async)?.uid" routerLink="/login" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
-            Login
-          </a>
-        <a class="mdl-navigation__link" *ngIf="(authService.user | async)?.uid" (click)="authService.signOut()" href="">
+        <a mat-list-item *ngIf="(authService.user | async)?.uid" (click)="authService.signOut()" href="">
+          <mat-icon class="nav-icon">exit_to_app</mat-icon>
           Logout
         </a>
-      </nav>
-    </div>
-  </header>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">{{this.title}}</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="onNavClick()">
-        <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>
-        Home
-      </a>
-      <a class="mdl-navigation__link" *ngIf="(authService.user | async)?.uid" routerLink="/tools" routerLinkActive="is-active" (click)="onNavClick()">
-        <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">build</i>
-        Tools
-      </a>
-      <a class="mdl-navigation__link" *ngIf="(authService.user | async)?.uid" routerLink="/todo" routerLinkActive="is-active" (click)="onNavClick()">
-        <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">check_box</i>
-        Todo
-      </a>
-      <a class="mdl-navigation__link" routerLink="/about" routerLinkActive="is-active" (click)="onNavClick()">
-        <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">info</i>
-        About
-      </a>
-      <a class="mdl-navigation__link" *ngIf="!(authService.user | async)?.uid" routerLink="/login" routerLinkActive="is-active" (click)="onNavClick()">
-        <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">account_box</i>
-        Login
-      </a>
-      <a class="mdl-navigation__link" *ngIf="(authService.user | async)?.uid" (click)="authService.signOut()" href="">
-        <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i>
-        Logout
-      </a>
-    </nav>
-  </div>
-  <main class="mdl-layout__content">
-    <div class="page-content">
-      <router-outlet></router-outlet>
-    </div>
-  </main>
+        <a mat-list-item routerLink="/about" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="snav.toggle()">
+          <mat-icon class="nav-icon">info</mat-icon>
+          About
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <main class="content">
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
