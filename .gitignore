@@ -40,7 +40,8 @@ Thumbs.db
 
 # Firebase
 .firebaserc
+.firebase
 firebase.json
 firestore.rules
 firestore.indexes.json
-src/environments/*
+
