@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute, Event } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { AuthService } from '@app-core/auth.service';
@@ -10,7 +10,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy{
+export class AppComponent implements OnInit, OnDestroy {
 
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
@@ -27,15 +27,15 @@ export class AppComponent implements OnInit, OnDestroy{
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  @ViewChild('drawer') drawer:ElementRef;
+  @ViewChild('drawer') drawer: ElementRef;
   title = 'Kwok\'s Site';
 
   ngOnInit() {
     this.router.events.pipe(
-    filter((event:Event) => event instanceof NavigationEnd),  
-    map(() => this.activatedRoute), 
+    filter((event: Event) => event instanceof NavigationEnd),
+    map(() => this.activatedRoute),
     map((route) => {
-      while (route.firstChild) route = route.firstChild;
+      while (route.firstChild) { route = route.firstChild; }
       return route;
     }),
     filter((route) => route.outlet === 'primary'),

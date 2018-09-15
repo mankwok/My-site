@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { CoreModule } from '@app-core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@app-core/material/material.module'
+import { MaterialModule } from '@app-core/material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
-import { MDLUpgradeElementDirective } from './directives/MaterialDesignLiteUpgradeElement';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -25,7 +23,6 @@ import { NotAuthGuard } from '@app-core/not-auth.guard';
     AppComponent,
     HomeComponent,
     ErrorComponent,
-    MDLUpgradeElementDirective,
     AboutComponent,
     LoginComponent
   ],

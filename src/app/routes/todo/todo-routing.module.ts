@@ -8,7 +8,7 @@ const routes: Routes = [
     component: TodoListComponent,
     data: { title: 'Todo List' },
   },
-]
+];
 
 @NgModule({
   imports: [
